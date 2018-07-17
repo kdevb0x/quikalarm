@@ -1,22 +1,18 @@
 package main
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"io"
-	"io/ioutil"
+	_ "errors"
 	"time"
 
-	"github.com/faiface/beep"
-	"github.com/faiface/beep/speaker"
-	"github.com/faiface/beep/wav"
+	_ "github.com/faiface/beep"
+	_ "github.com/faiface/beep/speaker"
+	_ "github.com/faiface/beep/wav"
 )
 
 var (
 	now        = time.Now()   // A global now just for reference
 	alarmSound = loadBuzzer() // TODO: Git rid of this global and call locally in an alarm field.
-	mainClock  = NewClock(now)
+	mainClock  = NewClock()
 )
 
 // clock is the time keeping part of an alarm.
@@ -45,7 +41,7 @@ func NewClock() *clock {
 	}
 	go func() {
 		for t := range clock.ticker.C {
-			clock.currentTime = time.Now().String()
+			clock.currentTimeString = t.String()
 		}
 	}()
 

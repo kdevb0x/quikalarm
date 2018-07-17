@@ -1,11 +1,9 @@
-package alarm_test
+package main
 
 import (
 	"fmt"
 	"testing"
 	"time"
-
-	"github.com/kidoda/quikalarm"
 )
 
 func TestNewClock(t *testing.T) {

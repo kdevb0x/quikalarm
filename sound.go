@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 
 	"github.com/faiface/beep"
-	"github.com/faiface/beep/speaker"
+	_ "github.com/faiface/beep/speaker"
 	"github.com/faiface/beep/wav"
 )
 
@@ -17,7 +17,7 @@ type buzzer struct {
 	stream    beep.StreamSeekCloser
 }
 
-// loadBuzzer initializes the sound from sound asset
+// LoadBuzzer initializes the sound from sound asset
 func loadBuzzer() *buzzer {
 	sound, err := alarmWav()
 	var assetReader = bytes.NewReader(sound.bytes)
@@ -26,7 +26,7 @@ func loadBuzzer() *buzzer {
 		return nil
 	}
 	var assetReadCloser = ioutil.NopCloser(assetReader)
-	stream, format, err := wav.Decode(assetReadCloser)
+	stream, _, err := wav.Decode(assetReadCloser)
 	if err != nil {
 		errors.New("Unable to decode wav")
 	}
@@ -37,6 +37,7 @@ func loadBuzzer() *buzzer {
 	return buz
 }
 
+/*
 // TODO: Possibly delete as this is the same as loadBuzzer
 // loadSound reads in the static soundfile from binary and returns a pointer
 func loadSound() (*Buzzer, error) {
@@ -53,3 +54,4 @@ func loadSound() (*Buzzer, error) {
 	sndBuffer := beep.NewBuffer(beep.Format{408442, 1, 2})
 
 }
+*/
