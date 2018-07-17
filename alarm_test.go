@@ -5,13 +5,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/kidoda/alarm"
+	"github.com/kidoda/quikalarm"
 )
 
-var (
-	linearClock = time.
-)
+func TestNewClock(t *testing.T) {
+	clock := NewClock()
+	// TODO: finish mocking clock and compare the times
+}
+func TestLoadSound(t *testing.T) {
 
+}
 func TestNewClock(t testing.T) {
-	var testClock = alarm.
 }
