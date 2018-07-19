@@ -1,4 +1,4 @@
-package main
+package main // import "github.com/kidoda/quikalarm"
 
 import (
 	_ "errors"
@@ -17,20 +17,33 @@ var (
 
 // clock is the time keeping part of an alarm.
 type clock struct {
-	startTime         time.Time
-	ticker            *time.Ticker
-	currentTimeString string
+	startTime  time.Time
+	currentTimeChan func() <-chan string {
+		ch := make(chan string, 1)
+	}
+	currentTime time.Time
 }
 
-func (a *alarm) SetWakeTimeString(time string) {
-
+func (a *alarm) SetWakeTime(newWakeTime time.Time) {
+	if after := a.currentTime
 }
 
+func (a alarm) GetWakeTime() string {
+	return a.wakeTime.String()
+}
 // alarm is the complete object with time, buzzer, and wake time.
 type alarm struct {
 	clock      *clock
 	wakeTime   time.Time
 	alarmSound buzzer
+}
+// TODO: Need to rethink this approach, combine creations?
+func NewAlarm() *alarm {
+	anAlarm := &alarm{
+		clock: NewClock(),
+		alarmSound: loadBuzzer(),
+	}
+	return anAlarm
 }
 
 // NewClock instantiates a new clock with current time values and returns a pointer

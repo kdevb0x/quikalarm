@@ -6,4 +6,5 @@ require (
 	github.com/gopherjs/gopherwasm v0.0.0-20180715123310-0765e455aaf6 // indirect
 	github.com/hajimehoshi/oto v0.0.0-20180705142016-b091cc6aeb6d // indirect
 	github.com/pkg/errors v0.8.0 // indirect
+	github.com/spf13/pflag v1.0.1
 )
