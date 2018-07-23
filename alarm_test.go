@@ -13,5 +13,3 @@ func TestNewClock(t *testing.T) {
 func TestLoadSound(t *testing.T) {
 
 }
-func TestNewClock(t testing.T) {
-}

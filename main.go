@@ -23,4 +23,5 @@ func main() {
 		clock = NewClock()
 		buzz  = loadBuzzer()
 	)
+	print(Usage)
 }
