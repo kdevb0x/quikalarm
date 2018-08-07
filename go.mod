@@ -1,9 +1,8 @@
-module github.com/kidoda/quikalarm
+module github.com/kidoda/quikalarm/alarm_tdd
 
 require (
-	github.com/faiface/beep v0.0.0-20180613152729-fe13953ab844
-	github.com/gopherjs/gopherjs v0.0.0-20180628210949-0892b62f0d9f // indirect
-	github.com/gopherjs/gopherwasm v0.0.0-20180715123310-0765e455aaf6 // indirect
-	github.com/hajimehoshi/oto v0.0.0-20180705142016-b091cc6aeb6d // indirect
+	github.com/faiface/beep v0.0.0-20180728231319-f88920ff55a2
+	github.com/go-bindata/go-bindata v1.0.0
+	github.com/hajimehoshi/oto v0.1.1 // indirect
 	github.com/pkg/errors v0.8.0 // indirect
 )

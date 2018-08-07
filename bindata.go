@@ -2,7 +2,7 @@
 // sources:
 // alarm.wav
 
-package main
+package engine
 
 import (
 	"crypto/sha256"
