@@ -12,17 +12,20 @@ import (
 )
 
 func TestNewClock(t *testing.T) {
-	clock := NewClock(time.Now())
-	time.Sleep(3 * time.Second)
-	if n := time.Now(); n != clock.CurrentTime {
-		t.Fail("clock's current time incorrect; != time.Now()")
+	cl := NewClock(time.Now())
+
+	var lapse time.Duration = 3 * time.Second
+	time.Sleep(lapse)
+
+	if n := cl.CreationTime.Sub(time.Now()); n != lapse {
+		t.Fail()
 	}
 }
 
 func TestSetWakeTime(t *testing.T) {
 	clock := NewClock(time.Now())
-	clock.SetWakeTime(5 * time.Hour)
-	if clock.WakeTime != time.Now()+(5*time.Hour) {
-		t.Fail("failed to set time")
+	clock.SetWakeTime(timeOrDuration(5*time.Hour), true)
+	if clock.WakeTime != time.Now().Add(5*time.Hour) {
+		t.Fail()
 	}
 }

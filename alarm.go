@@ -1,8 +1,9 @@
 package main
 
 import (
-	_ "fmt"
+	"fmt"
 	_ "io/ioutil"
+	"log"
 	"time"
 
 	_ "github.com/faiface/beep"
@@ -12,18 +13,48 @@ import (
 )
 
 type clock struct {
-	CurrentTime time.Time
-	WakeTime    time.Time
+	CreationTime time.Time
+	CurrentTime  time.Time
+	WakeTime     time.Time
 }
 
-func NewClock(ct time.Time) clock {
+// timeOrDuration makes it possible to set Waketime by time.Time
+// or time.Duration depending on the argument type given when called.
+type timeOrDuration interface {
+	String() string
+	Now() pkgTime
+}
+
+type pkgTime struct {
+	time.Time
+}
+
+func (pt pkgTime) String() string {
+	return fmt.Sprintf("%#v", pt)
+}
+
+// NewClock returns a new instance of clock.
+func NewClock() Clock {
+	now := pkgTime.Now()
 	c := &clock{}
-	c.CurrentTime = ct
-	return *c
+	c.CreationTime = now
+	return c
 }
 
-func (c *clock) SetWakeTime(t time.Time, byDur ...time.Duration) error {
-	if len(byDur) > 0 {
-		c.WakeTime = c.CurrentTime + byDur[0]
+// Clock is a wrapper for concrete type clock.
+type Clock interface {
+	SetWakeTime(timeOrDuration, bool) error
+}
+
+func (c *clock) SetWakeTime(tm timeOrDuration, isDuration bool) error {
+	if isDuration == true {
+		parsedDur, err := time.ParseDuration(tm.String())
+		if err != nil {
+			log.Println(err)
+			return err
+		}
+		c.WakeTime = c.CurrentTime.Add(parsedDur)
 	}
+	return nil
+
 }
