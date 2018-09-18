@@ -1,4 +1,4 @@
-package main
+package main // import "github.com/kidoda/quikalarm"
 
 import (
 	"github.com/spf13/pflag"
