@@ -1,13 +1,13 @@
- # __QuikAlarm:__
+# <u> __QuikAlarm:__ </u>
 
  **QuikAlarm** is a simple alarmclock utility written in golang.
 
- ## Useage Details:
+## Useage Details:
  - Displays current time, updated at second granularity.
  - Set using your system time based off local timezone/locale.
  *To set the wake time 'Set Waketime' button. Waketime is settable by absolute time, or duration (aka 'Timer-Mode').*
-<sub>*_In future versions I plan to add more features, such as changing the background color, and using a custom buzzer sound._ </sub>
 
+<sup>* **NOTE:**</sup> <u>In future versions I plan to add more features, such as changing the background color, and using a custom buzzer sound.</u>
 ## Implementation Details:
 
 `- TODO`
