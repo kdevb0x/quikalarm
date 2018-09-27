@@ -1,3 +1,5 @@
+bitbucket.org/rj/goey v0.0.0-20180926203328-f5a0d36d6c13 h1:287jNLq+boS3ZoPaP7daQLy4te7iMaQYSINEGuEc8JI=
+bitbucket.org/rj/goey v0.0.0-20180926203328-f5a0d36d6c13/go.mod h1:8Lh1Jqh+kvZ/CmtqqurK2g8Qny9r2WmSm+7EtkswZpQ=
 github.com/ajstarks/svgo v0.0.0-20180830174826-7338bd80e790 h1:501Zg60y06JDtrR7HRVcX2vBWXfAviBaRUkzcRPzzHU=
 github.com/ajstarks/svgo v0.0.0-20180830174826-7338bd80e790/go.mod h1:K08gAheRH3/J6wwsYMMT4xOr94bZjxIelGM0+d/wbFw=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

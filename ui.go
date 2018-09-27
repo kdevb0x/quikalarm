@@ -6,12 +6,11 @@ import (
 	_ "image"
 	co "image/color"
 	"io"
-	_ "log"
+	"log"
 	"os"
 	_ "strings"
 
 	svg "github.com/ajstarks/svgo"
-	// "github.com/gotk3/gotk3/gtk"
 	cname "golang.org/x/image/colornames"
 	// "github.com/mattn/gogtk/gtk"
 	/* "github.com/fyne-io/fyne"
@@ -34,7 +33,6 @@ var COLOR string
 
 type Digit interface {
 	SetNumber(n uint)
-	UpdateUI()
 }
 
 type digit struct {
@@ -44,6 +42,11 @@ type digit struct {
 	KillChan   chan struct{}
 	SVG        svg.SVG
 	Color      co.RGBA
+}
+
+// UI is a Looper for displaying the digital numbers.
+type UI struct {
+	T Time
 }
 
 // NewDigit creates a new digit, default output is os.Stdout
@@ -106,9 +109,16 @@ func (d *digit) SetNumber(n uint) {
 	}
 }
 
+// TODO: investigate using digit's update channel to update the UI, or a time object.
+
 // UpdateUI flushes any changes (such as changing the color) to the Output (io.Writer)
-func (d *digit) UpdateUI() {
-	fmt.Println(d.SVG)
+func (u *UI) Update() error {
+	_, err := fmt.Println(u.T.Hour.SVG, u.T.Minute.SVG, u.T.Second.SVG)
+	if err != nil {
+		log.Printf("Error printing digits to output: %s", err)
+		return err
+	}
+	return nil
 }
 
 type Application interface {

@@ -1,6 +1,7 @@
 module github.com/kidoda/quikalarm
 
 require (
+	bitbucket.org/rj/goey v0.0.0-20180926203328-f5a0d36d6c13
 	github.com/ajstarks/svgo v0.0.0-20180830174826-7338bd80e790
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fyne-io/fyne v0.0.0-20180920100906-f8512dd71118
