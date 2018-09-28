@@ -9,5 +9,5 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.2
 	github.com/stretchr/testify v1.2.2 // indirect
-	golang.org/x/image v0.0.0-20180920235150-e1a1ede6891c
+	golang.org/x/image v0.0.0-20180926015637-991ec62608f3
 )
