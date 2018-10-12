@@ -5,8 +5,8 @@
 package main
 
 import (
-	"bitbucket.org/rj/goey"
-	"bitbucket.org/rj/goey/base"
+	"github.com/mattn/go-gtk/gdk"
+	"github.com/mattn/go-gtk/gtk"
 	"golang.org/x/image/bmp"
 	"image"
 	"image/draw"
@@ -27,3 +27,5 @@ func MakeBMP(digit *Time) error {
 	encode := bmp.Encode()
 
 }
+
+func MainWindow()
