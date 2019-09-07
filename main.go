@@ -1,8 +1,10 @@
-package main // import "github.com/kidoda/quikalarm"
+package main // import "github.com/kdevb0x/quikalarm"
 
 import (
 	"github.com/spf13/pflag"
 )
+
+var userColor string
 
 const Usage = `Usage:	quikalarm [options...] [arguments]
 Simple alarm clock with few options.
@@ -17,12 +19,12 @@ Options:
 
 	-t, --timer		timer mode; in this mode the arguments given to -s, --set will be treated as a duration instead of an absolute time.`
 
-func init() {
+func getFlags() {
 	// p *string, name string, shorthand string, value string, usage string
-	pflag.StringVarP(&COLOR, "color", "c", "red", "set color of the digital display")
+	pflag.StringVarP(&userColor, "color", "c", "red", "set color of the digital display")
 	pflag.Parse()
 }
 
 func main() {
-
+	getFlags()
 }
