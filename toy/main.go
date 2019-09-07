@@ -20,7 +20,9 @@ func MainWindow() error {
 		win := ui.NewWindow("test", 800, 600, true)
 		button := ui.NewButton("CLICK ME!")
 		blank := ui.NewProgressBar()
-		win.SetChild(button)
+		alignButton := ui.NewGrid()
+		alignButton.Append(button, 250, 0, 20, 150, true, ui.AlignCenter, true, ui.AlignEnd)
+		win.SetChild(alignButton)
 		button.OnClicked(func(*ui.Button) {
 			count := 0
 			fmt.Printf("clicked")
@@ -30,7 +32,6 @@ func MainWindow() error {
 		win.OnClosing(func(*ui.Window) bool {
 			ui.Quit()
 			return true
-
 		})
 		win.Show()
 	})
